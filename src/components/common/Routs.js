@@ -1,0 +1,29 @@
+import React from 'react';
+import Home from '../home/Home';
+import AboutUs from '../about-us/AboutUs';
+import News from '../news/News';
+import ContactUs from '../contact-us/ContactUs';
+import Login from '../login/Login';
+import SignUp from '../sign-up/SignUp';
+
+import NavBar from './Navbar';
+import Footer from './Footer';
+import { Route, Routes, Navigate } from 'react-router-dom';
+
+export const NavRoutes = () => {
+  return (
+    <div>
+      <NavBar />
+        <Routes>
+            <Route exact path="/Home" element={<Home/>} />
+            <Route path="/" element={<Navigate replace to="/Home" />} />
+            <Route exact path="/AboutUs" element={<AboutUs/>} />
+            <Route exact path="/News" element={<News/>} />
+            <Route exact path="/ContactUs" element={<ContactUs/>} />
+            <Route exact path="/Login" element={<Login/>} />
+            <Route exact path="/SignUp" element={<SignUp/>} />
+        </Routes>
+      <Footer />
+    </div>
+  );
+};
