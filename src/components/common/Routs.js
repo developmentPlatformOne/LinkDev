@@ -10,6 +10,7 @@ import NavBar from './Navbar';
 import Footer from './Footer';
 import { Route, Routes, Navigate } from 'react-router-dom';
 
+const showStatus = "all";
 export const NavRoutes = () => {
   return (
     <div>
@@ -18,7 +19,7 @@ export const NavRoutes = () => {
             <Route exact path="/Home" element={<Home/>} />
             <Route path="/" element={<Navigate replace to="/Home" />} />
             <Route exact path="/AboutUs" element={<AboutUs/>} />
-            <Route exact path="/News" element={<News/>} />
+            <Route exact path="/News" element={<News showStatus={showStatus}/>} />
             <Route exact path="/ContactUs" element={<ContactUs/>} />
             <Route exact path="/Login" element={<Login/>} />
             <Route exact path="/SignUp" element={<SignUp/>} />
