@@ -1,0 +1,135 @@
+.thingsWeDo {
+    background-image: url(../img/mask.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 780px;
+    .brief {
+        position: relative;
+        float: right;
+        height: 540px;
+        margin-top: 35px;
+        background-color: #F215B6;
+        @include respond(lg) {
+            width: calc(100% - 500px);
+            padding-left: 225px;
+            margin-top: 120px;
+        }
+        @include respond(xl) {
+            padding-left: 250px;
+        }
+        h2 {
+            color: #253776;
+            font-size: 36px;
+            font-weight: 900;
+            text-align: right;
+            padding: 20px;
+            line-height: 45px;
+            span {
+                display: block;
+            }
+            @include respond(xl) {
+                font-size: 40px;
+                padding: 30px;
+                line-height: 60px;
+            }
+            @include respond(2xl) {
+                font-size: 55px;
+                padding: 50px;
+                line-height: 90px;
+            }
+        }
+        p {
+            color: #fff;
+            font-size: 24px;
+            padding: 0 20px;
+            text-align: right;
+            @include respond(xl) {
+                font-size: 28px;
+                padding: 0 50px;
+            }
+        }
+    }
+    .services {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 0px;
+        justify-content: center;
+        direction: rtl;
+        @include respond(lg) {
+            position: absolute;
+            left: -450px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        @include respond(xl) {
+            left: -500px;
+        }
+        .service {
+            height: 120px;
+            width: 120px;
+            margin: 0;
+            direction: ltr;
+            transition: all 0.2s linear;
+            position: relative;
+            @include respond(xs) {
+                height: 175px;
+                width: 175px;
+            }
+            @include respond(md) {
+                height: 225px;
+                width: 225px;
+            }
+            @include respond(xl) {
+                height: 250px;
+                width: 250px;
+            }
+            img {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+            }
+            a {
+                color: #fff;
+                font-size: 12px;
+                font-weight: 900;
+                z-index: 1;
+                position: absolute;
+                text-decoration: none;
+                bottom: 30px;
+                left: 10px;
+                @include respond(xs) {
+                    font-size: 18px;
+                    left: 20px;
+                }
+                @include respond(md) {
+                    font-size: 25px;
+                }
+            }
+        }
+        div:nth-of-type(1) {
+            @include respond(lg) {
+                transform: translateY(-60px);
+            }
+        }
+        div:nth-of-type(2) {
+            @include respond(lg) {
+                transform: translateY(70px);
+            }
+        }
+        div:nth-of-type(3) {
+            @include respond(lg) {
+                transform: translateY(185px);
+            }
+        }
+        div:nth-of-type(4) {
+            @include respond(lg) {
+                transform: translateY(-65px);
+            }
+        }
+        div:nth-of-type(5) {
+            @include respond(lg) {
+                transform: translateY(70px);
+            }
+        }
+    }
+}

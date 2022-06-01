@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import { Tabs, Tab } from 'react-bootstrap';
+import React, {useState} from 'react';
+import { Tabs, Tab, Card, Container, Row, Col } from 'react-bootstrap';
+import {Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
 
@@ -40,41 +41,66 @@ const NewsList = (props) => {
     )
   };
   
-  // Usage:
+  const truncate = (str, n) => {
+		return str?.length > n ? str.substr(0, n - 1) + " ..." : str;
+	};
   
+  const nav = useNavigate ()
 
+  const navigate = (id) => {
+      nav(`/NewsItem/${id}`)
+  }
   
 
   if (!newsItems || !newsCat) return <div>No News</div>;
   return (
-    <div>
+    <Container>
     {newsLoading && <div>Loading</div>}
     {!newsLoading && (
       <Tabs defaultActiveKey="Technology" id="uncontrolled-tab-example" className="mb-3">
         {newsCat.map((item, index) => (
           getNewsByCategory(item.id.toString()).length === 0 ? null :
-           <Tab key={index} eventKey={item.name} title={item.name}>
-            {getNewsByCategory(item.id.toString()).map((newsItem, newsIndex) => (
-                <div key={newsIndex}>
-                  <i className='fa fa-heart-o' aria-hidden='true'></i>
-                  <div>{newsItem.id}</div>
-                  <div>{newsItem.title}</div>
-                  <div>{newsItem.content}</div>
-                  <div><strong>Cat ID</strong>{newsItem.categoryID}</div>
-                  <div>{newsItem.urlToImage}</div>
-                  <div>{newsItem.description}</div>
-                  <div>{newsItem.publishedDate}</div>
-                  <div>{newsItem.showOnHomepage}</div>
-              </div>
-            ))}
+            <Tab key={index} eventKey={item.name} title={item.name}>
+              <Row>
+              {getNewsByCategory(item.id.toString()).map((newsItem, newsIndex) => (
+                <Col xs={12} sm={6} md={4} key={newsIndex}>
+                  <Card onClick={() => navigate(newsItem.id)} >
+                    <Card.Img variant="top" src={newsItem.urlToImage} />
+                    <Card.Body>
+                      <Card.Title>{truncate(newsItem.title, 70)}</Card.Title>
+                        <div className='card-date'>
+                          <i className='fa fa-calendar-o' aria-hidden='true'></i> 
+                          {newsItem.publishedDate}
+                        </div>
+                        <div className='card-action'>
+                          <i className='fa fa-heart-o' aria-hidden='true'></i>
+                          <i className='fa fa-share-alt' aria-hidden='true'></i>
+                        </div>
+                    </Card.Body>
+                  </Card>
+                </Col>
 
-           </Tab>
+                //   <div>
+                //     
+                //     <div>{newsItem.id}</div>
+                //     <div></div>
+                //     <div></div>
+                //     <div><strong>Cat ID</strong>{newsItem.categoryID}</div>
+                //     <div></div>
+                //     <div>{newsItem.description}</div>
+                //     <div></div>
+                //     <div>{newsItem.showOnHomepage}</div>
+                // </div>
+              ))}
+            </Row>
+            </Tab>
+           
         ))}
 
 
       </Tabs>
     )}
-    </div>
+    </Container>
   );
 };
 
