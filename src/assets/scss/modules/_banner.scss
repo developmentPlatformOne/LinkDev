@@ -1,18 +1,93 @@
  .banner {
-   background-color: gray;
+   overflow: hidden;
+    .carousel-item {
+       padding: 15px;
+       height: 600px;
+    }
+    strong {
+      font-size: 20px;
+      font-weight: 900;
+      padding: 30px 0;
+      display: block;
+    }
+    h1 {
+       position: relative;
+       .text {
+          position: relative;
+          z-index: 1;
+          font-size: 40px;
+          color: #181E4B;
+          line-height: 60px;
+          font-weight: 900;
+          @include respond(lg) {
+            font-size: 55px;
+            line-height: 90px;
+          }
+          @include respond(xl) {
+            font-size: 75px;
+          }
+       }
+       .vector {
+         height: 15px;
+         overflow: hidden;
+         display: block;
+         position: absolute;
+         top: 30px;
+         right: 0%;
+         width: 300px;
+         @include respond(lg) {
+            top: 45px;
+         }
+         @include respond(xl) {
+            top: 55px;
+         }
+       }
+    }
+    p {
+       font-size: 16px;
+       color: #5E6282;
+       line-height: 35px;
+       padding-top: 30px;
+    }
    .carousel-indicators {
       align-items: center;
+      width: 240px;
+      justify-content: space-between;
+      margin: 0 0 3rem 0;
+      left: 0%;
+      @include respond(lg) {
+         width: 300px;
+      }
+      &::before {
+         content: "";
+         display: block;
+         position: absolute;
+         height: 2px;
+         width: 100%;
+         background-color: #5E6282;
+         top: 50%;
+         transform: translateY(-50%);
+      }
        li {
-          margin: 10px;
-          height: 30px;
-          width: 30px;
+          margin: 0px;
+          height: 40px;
+          width: 40px;
           border-radius: 50%;
           transition: all 0.2s linear;
           cursor: pointer;
+          border: solid 2px #fff;
+          position: relative;
        }
        .activeIndicator {
-          height: 40px;
-          width: 40px;
+          height: 50px;
+          width: 50px;
+          border: solid 2px #fff;
        }
+   }
+   .bannerImg {
+      display: none;
+      @include respond(sm) {
+         display: block;
+      }
    }
  }

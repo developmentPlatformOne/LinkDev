@@ -51,56 +51,56 @@ const NewsList = (props) => {
       nav(`/NewsItem/${id}`)
   }
   
+  const addDefaultSrc = (ev) => {
+    ev.target.src = 'default.jpg'
+  }
 
   if (!newsItems || !newsCat) return <div>No News</div>;
   return (
-    <Container>
-    {newsLoading && <div>Loading</div>}
-    {!newsLoading && (
-      <Tabs defaultActiveKey="Technology" id="uncontrolled-tab-example" className="mb-3">
-        {newsCat.map((item, index) => (
-          getNewsByCategory(item.id.toString()).length === 0 ? null :
-            <Tab key={index} eventKey={item.name} title={item.name}>
-              <Row>
-              {getNewsByCategory(item.id.toString()).map((newsItem, newsIndex) => (
-                <Col xs={12} sm={6} md={4} key={newsIndex}>
-                  <Card onClick={() => navigate(newsItem.id)} >
-                    <Card.Img variant="top" src={newsItem.urlToImage} />
-                    <Card.Body>
-                      <Card.Title>{truncate(newsItem.title, 70)}</Card.Title>
-                        <div className='card-date'>
-                          <i className='fa fa-calendar-o' aria-hidden='true'></i> 
-                          {newsItem.publishedDate}
-                        </div>
-                        <div className='card-action'>
-                          <i className='fa fa-heart-o' aria-hidden='true'></i>
-                          <i className='fa fa-share-alt' aria-hidden='true'></i>
-                        </div>
-                    </Card.Body>
-                  </Card>
-                </Col>
-
-                //   <div>
-                //     
-                //     <div>{newsItem.id}</div>
-                //     <div></div>
-                //     <div></div>
-                //     <div><strong>Cat ID</strong>{newsItem.categoryID}</div>
-                //     <div></div>
-                //     <div>{newsItem.description}</div>
-                //     <div></div>
-                //     <div>{newsItem.showOnHomepage}</div>
-                // </div>
-              ))}
-            </Row>
-            </Tab>
-           
-        ))}
+    <section className='news'>
+      <h4>Media</h4>
+      <h2>Top News</h2>
+      <Container>
+      {newsLoading && <div>Loading</div>}
+      {!newsLoading && (
+        <Tabs defaultActiveKey="Technology" id="uncontrolled-tab-example" className="mb-3">
+          {newsCat.map((item, index) => (
+            getNewsByCategory(item.id.toString()).length === 0 ? null :
+              <Tab key={index} eventKey={item.name} title={item.name}>
+                <Row>
+                {getNewsByCategory(item.id.toString()).map((newsItem, newsIndex) => (
+                  <Col xs={12} md={6} xl={4} key={newsIndex}>
+                    <Card onClick={() => navigate(newsItem.id)} >
+                      <figure>
+                        <Card.Img variant="top" onError={addDefaultSrc} alt={truncate(newsItem.title, 20)} src={newsItem.urlToImage} />
+                      </figure>
+                      <Card.Body>
+                        <Card.Title>{truncate(newsItem.title, 100)}</Card.Title>
+                          <div className='card-date'>
+                            <i className='fa fa-calendar-o' aria-hidden='true'></i> 
+                            {newsItem.publishedDate}
+                          </div>
+                          <div className='category'>
+                            {item.name}
+                          </div>
+                          <div className='card-action'>
+                            <i className='fa fa-heart-o' aria-hidden='true'></i>
+                            <i className='fa fa-share-alt' aria-hidden='true'></i>
+                          </div>
+                      </Card.Body>
+                    </Card>
+                  </Col>
+                ))}
+              </Row>
+              </Tab>
+            
+          ))}
 
 
-      </Tabs>
-    )}
-    </Container>
+        </Tabs>
+      )}
+      </Container>
+    </section>
   );
 };
 

@@ -10,7 +10,7 @@ const Home = () => {
     <Fragment>
       <Banner />
       <ThingWeDo />
-      {/* <NewsList showStatus={showStatus} /> */}
+      <NewsList showStatus={showStatus} />
     </Fragment>
   )
 };

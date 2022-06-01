@@ -1,0 +1,91 @@
+.news {
+    > h4 {
+        color: #5E6282;
+        font-size: 18px;
+        font-weight: 600;
+        text-align: center;
+        padding-top: 30px;
+    }
+    h2 {
+        text-align: center;
+        font-size: 50px;
+        font-weight: 700;
+        color: #14183E;
+    }
+    .nav-tabs {
+        flex-direction: row-reverse;
+        justify-content: center;
+        padding: 20px 0;
+        border-bottom: none;
+        .nav-item {
+            margin: 0 20px;
+            .nav-link {
+                background-color: #E3E3E3;
+                border-radius: 10px;
+                color: #2F687F;
+                font-size: 18px;
+            }
+            .active {
+                background-color: #0ECEFF;
+                color: #fff;
+            }
+        }
+    }
+    .tab-content {
+        .card {
+            cursor: pointer;
+            border-radius: 24px;
+            overflow: hidden;
+            height: 550px;
+            position: relative;
+            margin-bottom: 30px;
+            border: none;
+            box-shadow: 1px 1px 25px #cdcdcd;
+            figure {
+                height: 350px;
+                overflow: hidden;
+            }
+            .card-img-top {
+                height: 100%;
+                width: auto;
+            }
+            .card-body {
+                .card-title {
+                    font-size: 18px;
+                    font-weight: 500;
+                    color: #5E6282;
+                }
+                .card-date {
+                    font-size: 16px;
+                    color: #707070;
+                    position: absolute;
+                    bottom: 70px;
+                    i {
+                        color: #13BEFF;
+                        font-size: 22px;
+                        margin-right: 10px;
+                    }
+                }
+                .category {
+                    position: absolute;
+                    bottom: 24px;
+                    background-color: #74747433;
+                    color: #5E6282;
+                    font-size: 16px;
+                    padding: 3px 25px;
+                    border-radius: 5px;
+                }
+                .card-action {
+                    position: absolute;
+                    bottom: 15px;
+                    right: 10px;
+                    i {
+                        color: #13BEFF;
+                        font-size: 26px;
+                        margin: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
