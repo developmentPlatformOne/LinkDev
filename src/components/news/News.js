@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Tabs, Tab, Card, Container, Row, Col } from 'react-bootstrap';
-import {Link, useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import axios from 'axios';
 
 
@@ -63,6 +63,7 @@ const NewsList = (props) => {
       <Container>
       {newsLoading && <div>Loading</div>}
       {!newsLoading && (
+        <div>
         <Tabs defaultActiveKey="Technology" id="uncontrolled-tab-example" className="mb-3">
           {newsCat.map((item, index) => (
             getNewsByCategory(item.id.toString()).length === 0 ? null :
@@ -98,15 +99,12 @@ const NewsList = (props) => {
 
 
         </Tabs>
+        {props.showStatus === "homeOnly" ? <Link className='seeAll' to="/News">View All News</Link> : null}
+        </div>
       )}
       </Container>
     </section>
   );
 };
 
-
-
 export default NewsList;
-
-/*
-     */

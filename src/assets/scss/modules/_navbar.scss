@@ -1,3 +1,25 @@
-.navbar-nav {
-    width: 100%;
+.navbar {
+    position: relative;
+    z-index: 1;
+    .navbar-nav {
+        width: 100%;
+        > div {
+            padding: 5px 15px;
+        }
+        .nav-link {
+            font-size: 17px;
+            color: #212832;
+            font-weight: 500;
+        }
+        .active {
+            color: #253776;
+            font-weight: 900;
+        }
+    }
+    .dropdown {
+        a {
+            text-decoration: none;
+            color: #212832;
+        }
+    }
 }

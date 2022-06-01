@@ -1,5 +1,18 @@
  .banner {
    overflow: hidden;
+   position: relative;
+   &::before {
+      content: "";
+      height: 800px;
+      width: 800px;
+      right: -150px;
+      top: -150px;
+      position: fixed;
+      animation: rotating 15s linear infinite;
+      animation-direction: reverse;
+      background-image: url("../img/decore.svg");
+      background-size: 100% 100%;
+   }
     .carousel-item {
        padding: 15px;
        height: 600px;
@@ -86,8 +99,19 @@
    }
    .bannerImg {
       display: none;
+      position: relative;
+      z-index: 1;
       @include respond(sm) {
          display: block;
       }
+   }
+ }
+
+ @keyframes rotating {
+   from {
+     transform: rotate(0deg);
+   }
+   to {
+     transform: rotate(360deg);
    }
  }

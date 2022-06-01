@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { useMatch } from 'react-router-dom';
 import axios from 'axios';
 
@@ -31,7 +31,25 @@ const NewsItem = () => {
 
        return (
            console.log(data),
-           <div>test</div>
+           <section className='newsItem'>
+               <Container>
+                    <figure>
+                        <img src={data.urlToImage} alt="news" />
+                    </figure>
+                    <h2>
+                        {data.title}
+                    </h2>
+                    <p>
+                        {data.content}
+                    </p>
+                    <p>
+                        {data.description}
+                    </p>
+                    <div className='date'>
+                    <i className='fa fa-calendar-o' aria-hidden='true'></i>  {data.publishedDate}
+                    </div>
+               </Container>
+           </section>
        );
 };
 
