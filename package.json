@@ -1,5 +1,10 @@
 {
   "name": "linkdev",
+  "author": "Abdelmonem Mohamed",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/developmentPlatformOne/LinkDev.git"
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -20,6 +25,7 @@
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "react": "^18.1.0",
+    "react-bootstrap": "^2.4.0",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
