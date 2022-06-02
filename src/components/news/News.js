@@ -2,14 +2,15 @@ import React, {useState} from 'react';
 import { Tabs, Tab, Card, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom'
 import axios from 'axios';
+import LoaderComp from '../common/Loader'
 
 
 
 
 const NewsList = (props) => {
-  const [newsItems, setNewsItems] = React.useState({});
+  const [newsItems, setNewsItems] = React.useState([]);
   const [newsLoading, setNewsLoading] = useState(true);
-  const [newsCat, setNewsCat] = useState({});
+  const [newsCat, setNewsCat] = useState([]);
 
   const newsURL = "https://api.npoint.io/d275425a434e02acf2f7";
   const newsCatURL = "https://api.npoint.io/91298d970c27e9a06518";
@@ -33,11 +34,16 @@ const NewsList = (props) => {
 
   const getNewsByCategory = category => {
     let newsArr = [];
+    let allNewsArr = [];
+    props.showStatus === "homeOnly" ? 
+    newsItems.filter(newsItem => newsItem.showOnHomepage === "yes").map(newsItem => allNewsArr.push(newsItem)) :
+    newsItems.map(newsItem => allNewsArr.push(newsItem));
+
     props.showStatus === "homeOnly" ? 
     newsItems.filter(newsItem => newsItem.categoryID === category && newsItem.showOnHomepage === "yes").map(newsItem => newsArr.push(newsItem)) : 
     newsItems.filter(newsItem => newsItem.categoryID === category).map(newsItem => newsArr.push(newsItem))
     return (
-      newsArr
+      category === "0" ? allNewsArr : newsArr
     )
   };
   
@@ -55,16 +61,21 @@ const NewsList = (props) => {
     ev.target.src = 'default.jpg'
   }
 
+
+  const obj = {"id":0,"name":"All"};
+  const newArr = newsCat.some(e => e.name === 'All') ? null : newsCat.push(obj);
+  
+
   if (!newsItems || !newsCat) return <div>No News</div>;
   return (
     <section className='news'>
       <h4>Media</h4>
       <h2>Top News</h2>
       <Container>
-      {newsLoading && <div>Loading</div>}
+      {newsLoading && <LoaderComp />}
       {!newsLoading && (
         <div>
-        <Tabs defaultActiveKey="Technology" id="uncontrolled-tab-example" className="mb-3">
+        <Tabs defaultActiveKey="All" id="uncontrolled-tab-example" className="mb-3">
           {newsCat.map((item, index) => (
             getNewsByCategory(item.id.toString()).length === 0 ? null :
               <Tab key={index} eventKey={item.name} title={item.name}>
@@ -82,7 +93,7 @@ const NewsList = (props) => {
                             {newsItem.publishedDate}
                           </div>
                           <div className='category'>
-                            {item.name}
+                            {newsCat[parseInt(newsItem.categoryID - 1)].name}
                           </div>
                           <div className='card-action'>
                             <i className='fa fa-heart-o' aria-hidden='true'></i>

@@ -77,8 +77,8 @@
                     background-color: #74747433;
                     color: #5E6282;
                     font-size: 16px;
-                    padding: 3px 25px;
-                    border-radius: 5px;
+                    padding: 2px 15px;
+                    border-radius: 15px;
                 }
                 .card-action {
                     position: absolute;
@@ -105,4 +105,8 @@
         border-radius: 10px;
         font-size: 18px;
     }
+}
+
+.newsItem {
+    padding: 50px 0 200px;
 }

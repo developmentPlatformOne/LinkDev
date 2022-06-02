@@ -15,12 +15,12 @@
    }
     .carousel-item {
        padding: 15px;
-       height: 600px;
+       height: 660px;
     }
     strong {
       font-size: 20px;
       font-weight: 900;
-      padding: 30px 0;
+      padding: 20px 0;
       display: block;
     }
     h1 {
@@ -34,7 +34,7 @@
           font-weight: 900;
           @include respond(lg) {
             font-size: 55px;
-            line-height: 90px;
+            line-height: 80px;
           }
           @include respond(xl) {
             font-size: 75px;
@@ -59,25 +59,29 @@
     p {
        font-size: 16px;
        color: #5E6282;
-       line-height: 35px;
-       padding-top: 30px;
+       line-height: 30px;
+       padding-top: 15px;
     }
    .carousel-indicators {
       align-items: center;
       width: 240px;
       justify-content: space-between;
-      margin: 0 0 3rem 0;
+      margin: 0 0 2rem 0;
       left: 0%;
       @include respond(lg) {
-         width: 300px;
+         width: 400px;
       }
       &::before {
          content: "";
          display: block;
          position: absolute;
-         height: 2px;
-         width: 100%;
-         background-color: #5E6282;
+         height: 7px;
+         width: 80%;
+         right: 10%;
+         background-repeat-y: no-repeat;
+         background-position: center;
+         background-size: 100%;
+         background-image: url(../img/dots.png);
          top: 50%;
          transform: translateY(-50%);
       }
@@ -88,13 +92,11 @@
           border-radius: 50%;
           transition: all 0.2s linear;
           cursor: pointer;
-          border: solid 2px #fff;
           position: relative;
        }
        .activeIndicator {
           height: 50px;
           width: 50px;
-          border: solid 2px #fff;
        }
    }
    .bannerImg {
@@ -105,6 +107,47 @@
          display: block;
       }
    }
+   .bannerAction {
+      display: flex;
+      justify-content: left;
+      align-items: baseline;
+      position: absolute;
+      left: 15px;
+      bottom: 125px;
+      .seeAll {
+         background-color: #FF7C16;
+         color: #fff;
+         display: block;
+         width: 130px;
+         padding: 17px 0;
+         text-align: center;
+         text-decoration: none;
+         border-radius: 10px;
+         margin-right: 30px;
+         font-size: 16px;
+         @include respond(lg) {
+            width: 170px;
+            font-size: 18px;
+         }
+     }
+     .demo {
+         display: block;
+         font-size: 17px;
+         button {
+            border: none;
+            background-color: #e72228;
+            height: 53.5px;
+            width: 53.5px;
+            border-radius: 50%;
+            color: #fff;
+            text-align: center;
+            line-height: 53.5px;
+            margin-right: 15px;
+            font-size: 17px;
+         }
+      }
+   }
+   
  }
 
  @keyframes rotating {

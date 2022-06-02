@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { useMatch } from 'react-router-dom';
 import axios from 'axios';
+import LoaderComp from '../common/Loader'
 
 const NewsItem = () => {
         const {
@@ -30,25 +31,36 @@ const NewsItem = () => {
 
 
        return (
-           console.log(data),
+           
            <section className='newsItem'>
+               {loading && <LoaderComp />}
+               {!loading && (
                <Container>
-                    <figure>
-                        <img src={data.urlToImage} alt="news" />
-                    </figure>
-                    <h2>
-                        {data.title}
-                    </h2>
-                    <p>
-                        {data.content}
-                    </p>
-                    <p>
-                        {data.description}
-                    </p>
-                    <div className='date'>
-                    <i className='fa fa-calendar-o' aria-hidden='true'></i>  {data.publishedDate}
-                    </div>
+                   <Row>
+                    <Col xs={12} md={6} xl={6}>
+                        <figure>
+                            <img style={{"width": "100%"}} src={data.urlToImage} alt="news" />
+                        </figure>
+                    </Col>
+                    <Col xs={12} md={6} xl={6}>
+                        <h2>
+                            {data.title}
+                        </h2>
+                        <p>
+                            {data.content}
+                        </p>
+                        <p>
+                            {data.description}
+                        </p>
+                        <div className='date'>
+                        <i className='fa fa-calendar-o' aria-hidden='true'></i>  {data.publishedDate}
+                        </div>
+                    </Col>
+                   </Row>
+                    
+                    
                </Container>
+               )}
            </section>
        );
 };

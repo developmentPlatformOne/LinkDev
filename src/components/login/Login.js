@@ -5,7 +5,7 @@ const Login = () => {
   return (
     <Container>
         <Row>
-            <Col>
+            <Col style={{"padding": "200px 0", "textAlign": "center", "fontSize": "40px"}}>
             Login
             </Col>
         </Row>

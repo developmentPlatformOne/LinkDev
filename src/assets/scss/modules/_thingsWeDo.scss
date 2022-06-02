@@ -67,12 +67,25 @@
             left: -500px;
         }
         .service {
+            display: block;
             height: 120px;
             width: 120px;
             margin: 0;
             direction: ltr;
             transition: all 0.2s linear;
             position: relative;
+            &::before {
+                content: "";
+                height: 100%;
+                width: 100%;
+                background-color: #000;
+                opacity: 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transition: all 0.2s linear;
+                z-index: 1;
+            }
             @include respond(xs) {
                 height: 175px;
                 width: 175px;
@@ -90,14 +103,16 @@
                 height: 100%;
                 width: 100%;
             }
-            a {
+            .title {
+                z-index: 2;
                 color: #fff;
                 font-size: 12px;
                 font-weight: 900;
                 z-index: 1;
                 position: absolute;
                 text-decoration: none;
-                bottom: 30px;
+                transition: all 0.2s linear;
+                bottom: 20px;
                 left: 10px;
                 @include respond(xs) {
                     font-size: 18px;
@@ -106,29 +121,47 @@
                 @include respond(md) {
                     font-size: 25px;
                 }
+                span {
+                    opacity: 0;
+                    display: block;
+                    font-size: 12px;
+                    font-weight: 100;
+                    padding-top: 10px;
+                    transition: all 0.2s linear;
+                }
+            }
+            &:hover {
+                &::before {
+                    opacity: 0.4;
+                }
+                .title {
+                    span {
+                        opacity: 1;
+                    }
+                }
             }
         }
-        div:nth-of-type(1) {
+        a:nth-of-type(1) {
             @include respond(lg) {
                 transform: translateY(-60px);
             }
         }
-        div:nth-of-type(2) {
+        a:nth-of-type(2) {
             @include respond(lg) {
                 transform: translateY(70px);
             }
         }
-        div:nth-of-type(3) {
+        a:nth-of-type(3) {
             @include respond(lg) {
                 transform: translateY(185px);
             }
         }
-        div:nth-of-type(4) {
+        a:nth-of-type(4) {
             @include respond(lg) {
                 transform: translateY(-65px);
             }
         }
-        div:nth-of-type(5) {
+        a:nth-of-type(5) {
             @include respond(lg) {
                 transform: translateY(70px);
             }

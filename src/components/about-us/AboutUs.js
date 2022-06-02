@@ -5,7 +5,7 @@ const AboutUs = () => {
   return (
     <Container>
         <Row>
-            <Col>
+            <Col style={{"padding": "200px 0", "textAlign": "center", "fontSize": "40px"}}>
             About Us 
             </Col>
         </Row>

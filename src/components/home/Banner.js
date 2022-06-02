@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Carousel, Container, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import traveller from '../../assets/img/traveller.png';
+import LoaderComp from '../common/Loader'
 
 const Banner = () => {
 
@@ -21,7 +22,7 @@ const Banner = () => {
     .catch((error) => {
       console.log(error);
     }).finally(() => {
-      setLoading(false);
+        setLoading(false);
     })
   }, []);
 
@@ -43,7 +44,7 @@ const Banner = () => {
       <Container>
       <Row>
         <Col md={6}>
-        {loading && <div>Loading ...</div>}
+        {loading && <LoaderComp />}
         {!loading && (
         <Carousel activeIndex={index} interval={null} indicators={false} controls={false} onSelect={handleSelect}>
         {data.map((item, index) => (
@@ -91,6 +92,16 @@ const Banner = () => {
               </span>
             </h1>
             <p>{item.brief}</p>
+            <div className='bannerAction'>
+              <a href='#0' className='seeAll'>Find Out More</a>
+              <div className='demo'>
+                <button>
+                  <i className="fa fa-play" aria-hidden="true"></i>
+                </button>
+                Play Demo
+              </div>
+            </div>
+            
           </Carousel.Item>
         ))}
 

@@ -22,7 +22,6 @@ const ThingWeDo = () => {
  }, []);
 
   return (
-    console.log(data),
     <section className='thingsWeDo'>
     <Container fluid>
         <div className='brief'>
@@ -38,12 +37,15 @@ const ThingWeDo = () => {
                 {loading && <div>Loading ...</div>}
                 {!loading && (
                 data.services.map((item, index) => (
-                <div key={index} className='service'>
+                <a href={item.serviceURL} key={index} className='service'>
                     <img src={item.imgURL} alt={item.name} />
-                    <a href='#0'>
+                    <h4 className='title'>
                         {item.name}
-                    </a>
-                </div>
+                        <span>
+                          Read More <i className="fa fa-long-arrow-right" aria-hidden="true"></i> 
+                        </span>
+                    </h4>
+                </a>
                 )))}
             </div>
         </div>

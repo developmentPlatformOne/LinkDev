@@ -7,27 +7,32 @@
         {
             "name": "Crafty Mind",
             "description": "Crafty Mind description ...",
-            "imgURL": "eservcies/craftyMind.png"
+            "imgURL": "eservcies/craftyMind.png",
+            "serviceURL": "#0"
         },
         {
             "name": "Envision",
             "description": "Envision description ...",
-            "imgURL": "eservcies/envision.png"
+            "imgURL": "eservcies/envision.png",
+            "serviceURL": "#0"
         },
         {
             "name": "Transformation",
             "description": "Transformation description ...",
-            "imgURL": "eservcies/transformation.png"
+            "imgURL": "eservcies/transformation.png",
+            "serviceURL": "#0"
         },
         {
             "name": "Services",
             "description": "Services description ...",
-            "imgURL": "eservcies/services.png"
+            "imgURL": "eservcies/services.png",
+            "serviceURL": "#0"
         },
         {
             "name": "Dynamic 365",
             "description": "Dynamic 365 description ...",
-            "imgURL": "eservcies/dynamic-365.png"
+            "imgURL": "eservcies/dynamic-365.png",
+            "serviceURL": "#0"
         }
         
     ]}

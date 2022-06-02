@@ -52,6 +52,16 @@ footer {
     .social {
         display: flex;
         justify-content: space-around;
+        li {
+            a {
+                border-radius: 50%;
+                height: 42px;
+                width: 42px;
+                line-height: 34px;
+                box-shadow: 1px 1px 10px #c5c5c5;
+                text-align: center;
+            }
+        }
     }
     .copyright {
         text-align: center;
