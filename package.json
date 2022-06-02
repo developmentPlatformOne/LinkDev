@@ -1,6 +1,10 @@
 {
   "name": "linkdev",
   "author": "Abdelmonem Mohamed",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/developmentPlatformOne/LinkDev.git"
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
