@@ -87,7 +87,7 @@ const NewsList = (props) => {
                         <Card.Img variant="top" onError={addDefaultSrc} alt={truncate(newsItem.title, 20)} src={newsItem.urlToImage} />
                       </figure>
                       <Card.Body>
-                        <Card.Title>{truncate(newsItem.title, 100)}</Card.Title>
+                        <Card.Title>{truncate(newsItem.title, 80)}</Card.Title>
                           <div className='card-date'>
                             <i className='fa fa-calendar-o' aria-hidden='true'></i> 
                             {newsItem.publishedDate}
